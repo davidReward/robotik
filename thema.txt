@@ -1,0 +1,2 @@
+Bayessches Netz
+Künstliches neuronales Netz
