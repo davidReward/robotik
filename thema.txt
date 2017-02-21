@@ -1,4 +1,6 @@
--Bayessches Netz
+-Bayessches Netz!
+
+###############################
 -Künstliches neuronales Netz
 -Hidden Markov Model
 (-Evolutionärer Algorithmus)
