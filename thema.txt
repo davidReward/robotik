@@ -1,5 +1,4 @@
 -Bayessches Netz!
-
 ###############################
 -Künstliches neuronales Netz
 -Hidden Markov Model
