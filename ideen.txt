@@ -1,6 +1,16 @@
 -Thomas Bayes
--Maschinelles Lernen --> Buch dazu
--Künstliche Intellignez --> Buch dazu
+-Maschinelles Lernen --> Teil der KI
+-Künstliche Intellignez 
+-EM-Algorithmus
+-Heuristiken
  
- 
- -Gliederung machen!
+
+Gliederung:
+    -Einführung und Fragestellung
+    -Stand der Forschung
+        -Einführung in KI
+        -Maschinelles Lernen allgemein
+    -Bayes Netze
+    -Schlussfolgerung
+        
+--> https://www.uni-bamberg.de/fileadmin/comparpol/Service/Saalfeld_Hinweise_Hausarbeiten_20120301.pdf
