@@ -7,6 +7,8 @@
 
 Gliederung:
     -Einführung und Fragestellung
+        -Begriffe: Agent, Roboter, Bots, 
+        -Abb. S. 4 Schauß/Sabel
     -Stand der Forschung
         -Einführung in KI
         -Maschinelles Lernen allgemein
