@@ -1,0 +1,23 @@
+https://www.youtube.com/watch?v=5lqmo44NFDA
+http://www.mathe-online.at/mathint/wstat1/i.html
+
+KI:
+Handbuch der Künstlichen Intelligenz / von Günther Görz
+Grundkurs Künstliche Intelligenz : Eine praxisorientierte Einführung / von Wolfgang Ertel   --> E-Book
+Künstliche Intelligenz : ein moderner Ansatz / Stuart Russell ; Peter Norvig
+Künstliche Intelligenz für Ingenieure / von Jan Lunze
+
+#http://www.ki.informatik.uni-frankfurt.de/lehre/WS2012/KI/skript/skript11Feb13.pdf
+
+
+Maschinelles Lernen:
+http://www-ai.cs.uni-dortmund.de/LEHRE/VORLESUNGEN/MLRN/WS1314/mlv_skript_ws1314.pdf
+https://www.ke.tu-darmstadt.de/lehre/archiv/ws0405/mldm/introduction.pdf
+
+beides: http://www.cogsys.wiai.uni-bamberg.de/schmid/uoshp/lehreuos/kiundml.pdf
+
+Bayes: 
+http://www.psychologie.uni-heidelberg.de/ae/allg/lehre/041202_Kausal.pdf
+http://wwwdh.cs.fau.de/IMMD8/Lectures/GameAI/Bayes.pdf
+
+http://personal.disco.unimib.it/Vanneschi/McGrawHill_-_Machine_Learning_-Tom_Mitchell.pdf
