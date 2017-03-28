@@ -17,3 +17,10 @@ Gliederung:
         
 Formelles:
 https://www.uni-bamberg.de/fileadmin/comparpol/Service/Saalfeld_Hinweise_Hausarbeiten_20120301.pdf
+
+
+Bayes:
+-zahlenbsp aus seite 172
+-wissen über unabhängigkeit von variablen wird genutzt
+-bsp?
+-
