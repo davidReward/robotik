@@ -7,6 +7,11 @@ Grundkurs Künstliche Intelligenz : Eine praxisorientierte Einführung / von Wol
 Künstliche Intelligenz : ein moderner Ansatz / Stuart Russell ; Peter Norvig
 Künstliche Intelligenz für Ingenieure / von Jan Lunze
 
+Russell, S. J. & Norvig, P. (2010). Artificial Intelligence - A Modern Approach (3. internat.
+ed.). Pearson Education.
+
+
+
 #http://www.ki.informatik.uni-frankfurt.de/lehre/WS2012/KI/skript/skript11Feb13.pdf
 
 
@@ -21,3 +26,5 @@ http://www.psychologie.uni-heidelberg.de/ae/allg/lehre/041202_Kausal.pdf
 http://wwwdh.cs.fau.de/IMMD8/Lectures/GameAI/Bayes.pdf
 
 http://personal.disco.unimib.it/Vanneschi/McGrawHill_-_Machine_Learning_-Tom_Mitchell.pdf
+
+VL Info 1
