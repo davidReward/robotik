@@ -7,7 +7,7 @@ In der Vorlesung thematisiert, dass ein Roboter zur Lokalisierung über mehrere 
 Sind Zufallsvariablen paarweise unabhängig, so gilt: \[ P(X_1, ..., X_n) = P(X_1) * P(X_2) * ... * P(X_n)\] 
 Gilt die paarweise unabhängigkeit auch für bedingte Wahrscheinlichkeiten, dann gilt: \[ P(A\vert B = \frac{P(A,B)}{P(B)} = \frac{P(A) * P(B)}{P(B)}  = P(A) \] da sind \textit{P(B)} rauskürtzt. Man spricht davon, dass sich \textit{P(A$\vert$ B)} auf die \textit{A-priori-Wahrscheinlichkeit} reduziert. Die A-priori-Wahrscheinlichkeit beschreibt die Wahrscheinlichkeit, die man von durch Vorwissen annehmen kann, in diesem Fall die Unabhängigkeit. Nun kann es jedoch auch sein, dass nicht für alle Variablen paarweise Unabhängigkeit gilt. Es folgt nun ein Beispiel nach TODO Quelle Perl. Es soll aufzeigen, wie man mit Bayes'schen Netzen auf Sachverhalte schließen kann und dabei auch Abhängigkeiten von Variablen nutzt. 
 
-\subsection{Alarmanlagen-/Erdbebenbeisiel}
+\section{Alarmanlagen-/Erdbebenbeisiel}
 Bob ist alleinstehend und berufstätige und möchte sein Haus vor Einbrechern schützen. Er bringt in seinem Haus eine Alarmanlage an. Sie soll im Falle eines Einbruch (\textit{Ein}) alarmieren. Ist er im Büro, so kann er den Alarm nicht hören. Glücklicherweise hat er die netten Nachbarn John (\textit{J}) und Mary (\textit{M}). Sie wohnen im linken beziehungsweise rechten Nachbarhaus. John hat nun schon einige Jahre Erfahrung mit seiner Alarmanlage (\textit{Al}) und dem Anrufverhalten seiner Nachbarn und weiß: 
 \[ P(J\vert Al) = 0,9\] 
 \[ P(J\vert \overline{Al}) = 0,05\]
@@ -19,9 +19,14 @@ Neben einem Einbruch kann auch durch ein immer mal wieder vorkommendes Erdbeben 
 \[ P(Al\vert Ein,\overline{Erd}) = 0,94\]
 \[ P(Al\vert \overline{Ein}, Erd) = 0,29\]
 \[ P(Al\vert \overline{Ein}, \overline{Erd})  = 0,0001\]
+Außerdem gilt für die Auftretenswahrscheinlichkeiten: 
+\[ P(Ein) = 0,001\]
+\[ P(Erd) = 0,002\]
+Des Weiteren gehen wir hier in diesem Beispiel davon aus, dass das Auftreten eines Erdbebens nichts mit einem Einbruch und das Vorkommen eines Einbruchs nichts mit dem Auftreten eines Erdbebens zu tun hat. Diese Ereignisse sind also stochastisch unabhängig.   
+\subsection{Bayes'sche Netze als Graphen}
+TODO Grafik 7.11 einfügen
 
-
-
+Um die oben genannten Sachverhalte anschaulicher zu gestalten, kann man sie mit Hilfe eines Graphen visualisieren. Graphen bestehen im Allgemeinen aus Knoten und Kanten. Bei Graphen von Bayes'schen Netzen repräsentieren Knoten Variablen und Kanten stehen für eine bedingte Wahrscheinlichkeit. So gibt die Kante von \textit{Einbruch} nach \textit{Alarm} die Wahrscheinlichkeit \textit{P(Al$\vert$ Ein)} und \textit{P(Al$\vert$ $\overline{Ein}$)} wieder. 
 
 
 
