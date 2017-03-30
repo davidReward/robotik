@@ -1,11 +1,25 @@
 \chapter{Bayes'sches Netz}
 Dieses Kapitel beschäftigt sich eingangs mit den Grundlagen von Bayes'schen Netzen. Ein Beispiel soll den Sachverhalt greifbar erklären.
 Später kann dann der Zusammenhang zwischen den Bayes'schen Netzen, dem maschinellen Lernen und der Robotik gesehn werden.
-\section{Fallbeispiel}
+\section{Eigenschaften von Bayes'schen Netzen}
 In der Vorlesung thematisiert, dass ein Roboter zur Lokalisierung über mehrere Sensorsysteme verfügt. Sei nun \textit{n} die Anzahl der Sensorsysteme und \textit{m} der Wertebereich der möglichen Trefferwahrscheinlichkeiten der Sensorsysteme, dann beträgt der Aufwand der Auswertung des stochastischen Ausdrucks \[ m^n\]. Somit wächst der Aufwand von der Auswertung des Ausdrucks exponentiell. Dieser Aufwand kann in der Praxis glücklicherweise jedoch meist minimiert werden. Oft kann man auf Variablen verzichten, ohne einen Informationsverlust herbeizurufen. Hier kommen Bayes'sche Netze ins Spiel. Sie verwenden das das Wissen über unabhängige Variablen. 
 \subsection{Unabhängige Variablen}
 Sind Zufallsvariablen paarweise unabhängig, so gilt: \[ P(X_1, ..., X_n) = P(X_1) * P(X_2) * ... * P(X_n)\] 
-Betrachtet man unter, dass paarweise Unabhängigkeit gilt folgenden Ausdruck, so kann man 
+Gilt die paarweise unabhängigkeit auch für bedingte Wahrscheinlichkeiten, dann gilt: \[ P(A\vert B = \frac{P(A,B)}{P(B)} = \frac{P(A) * P(B)}{P(B)}  = P(A) \] da sind \textit{P(B)} rauskürtzt. Man spricht davon, dass sich \textit{P(A$\vert$ B)} auf die \textit{A-priori-Wahrscheinlichkeit} reduziert. Die A-priori-Wahrscheinlichkeit beschreibt die Wahrscheinlichkeit, die man von durch Vorwissen annehmen kann, in diesem Fall die Unabhängigkeit. Nun kann es jedoch auch sein, dass nicht für alle Variablen paarweise Unabhängigkeit gilt. Es folgt nun ein Beispiel nach TODO Quelle Perl. Es soll aufzeigen, wie man mit Bayes'schen Netzen auf Sachverhalte schließen kann und dabei auch Abhängigkeiten von Variablen nutzt. 
+
+\subsection{Alarmanlagen-/Erdbebenbeisiel}
+Bob ist alleinstehend und berufstätige und möchte sein Haus vor Einbrechern schützen. Er bringt in seinem Haus eine Alarmanlage an. Sie soll im Falle eines Einbruch (\textit{Ein}) alarmieren. Ist er im Büro, so kann er den Alarm nicht hören. Glücklicherweise hat er die netten Nachbarn John (\textit{J}) und Mary (\textit{M}). Sie wohnen im linken beziehungsweise rechten Nachbarhaus. John hat nun schon einige Jahre Erfahrung mit seiner Alarmanlage (\textit{Al}) und dem Anrufverhalten seiner Nachbarn und weiß: 
+\[ P(J\vert Al) = 0,9\] 
+\[ P(J\vert \overline{Al}) = 0,05\]
+\[ P(M\vert Al) = 0,7\]
+\[ P(M\vert \overline{Al} ) = 0,01\]
+Die jeweils zu 1 fehlenden Wahrscheinlichkeiten sind anderen Ereignissen zugeordnet. So kann beispielsweise John den Alarm von Bobs Haus mit dem Alarm anderer Häuser verwechseln und Mary ist schwerhörig und überhört ab und zu den Alarm. 
+Neben einem Einbruch kann auch durch ein immer mal wieder vorkommendes Erdbeben (\textit{Erd}) den Alarm auslösen. In diesem Zusammenhang sprechen wir dabei von einem \textit{false positive}. Bob will nämlich nicht über Erdbeben informiert werden. Es gilt:
+\[ P(Al\vert Ein, Erd) = 0,95\] 
+\[ P(Al\vert Ein,\overline{Erd}) = 0,94\]
+\[ P(Al\vert \overline{Ein}, Erd) = 0,29\]
+\[ P(Al\vert \overline{Ein}, \overline{Erd})  = 0,0001\]
+
 
 
 
