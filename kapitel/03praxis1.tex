@@ -26,9 +26,35 @@ Des Weiteren gehen wir hier in diesem Beispiel davon aus, dass das Auftreten ein
 \subsection{Bayes'sche Netze als Graphen}
 TODO Grafik 7.11 einfügen
 
-Um die oben genannten Sachverhalte anschaulicher zu gestalten, kann man sie mit Hilfe eines Graphen visualisieren. Graphen bestehen im Allgemeinen aus Knoten und Kanten. Bei Graphen von Bayes'schen Netzen repräsentieren Knoten Variablen und Kanten stehen für eine bedingte Wahrscheinlichkeit. So gibt die Kante von \textit{Einbruch} nach \textit{Alarm} die Wahrscheinlichkeit \textit{P(Al$\vert$ Ein)} und \textit{P(Al$\vert$ $\overline{Ein}$)} wieder. In der Grafik ist auch eine Wahrheitstabelle enthalten. Die Abkürzungen \textit{w} und \textit{f} stehen für wahr und falsch. 
+Um die oben genannten Sachverhalte anschaulicher zu gestalten, kann man sie mit Hilfe eines Graphen visualisieren. Graphen bestehen im Allgemeinen aus Knoten und Kanten. Bei Graphen von Bayes'schen Netzen repräsentieren Knoten Variablen und Kanten stehen für eine bedingte Wahrscheinlichkeit. So gibt die Kante von \textit{Einbruch} nach \textit{Alarm} die Wahrscheinlichkeit \textit{P(Al$\vert$ Ein)} und \textit{P(Al$\vert$ $\overline{Ein}$)} wieder. In der Grafik ist auch eine Wahrheitstabelle enthalten. Die Abkürzungen \textit{w} und \textit{f} stehen für wahr und falsch. Die Tatsache, dass keine Kante von \textit{Einbruch} nach \textit{Erdbeben} zeigt, dass die Variablen unabhängig sind. Um die anderen Kanten zu verstehen, schauen wir uns erst einmal allgemein die \textit{Bedingte Unabhängigkeit} an. 
+\subsection{Bedingte Unabhängigkeit}  
+Zwei Variablen \textit{A} und \textit{B} sind stochastisch bedingt abhängig, wenn gilt:
+\[ P(A,B\vert C) = P(A\vert C) * P(B\vert C)\]
+Da in unserem Beispiel John und Mary unabhängig auf einen Alarm reagieren, gilt für das Ereignis \textit{P(J,M$\vert$ Al)} folgendes:
+\[ P(J,M\vert Al) = P(J\vert Al) * P(M\vert Al)\]
+Es handelt sich hier also auch um bedingt unabhängige Ereignisse. Ist nun ein Wert $\neq$ 0 für \textit{Al} bekannt (in diesem Beispiel ist der Wert für \textit{Al} diskret, er kann also nur 0 oder 1 sein), so redet man von einer Unabhängigkeit. Die Variablen \textit{J} hingegen sind nur bedingt unabhängig und nicht unabhängig. 
+Für die Variablen \textit{J} und \textit{Ein} gilt folgendes:
+\[ P(J,Ein\vert Al) = P(J\vert Al) * P(Ein\vert Al)\]
+Die Erkenntnis aus der obigen Gleichung lautet: \textit{J} und \textit{Ein} sind unabhängig, gegeben \textit{Al}. Ebenso unabhängig sind auch \textit{J} und \textit{Erd} gegeben \textit{Al}, \textit{J} und \textit{Erd} gegeben \textit{Al}, \textit{M}, \textit{M} und \textit{Ein} gegeben \textit{Al} sowie \textit{M} und \textit{Erd} gegeben \textit{Al}. 
 
-
+Mit dem Hintergrundwissen konkrete Wahrscheinlichkeiten berechnen:
+\[ P(J\vert Ein) = \frac{P(J\vert Ein)}{P(Ein)}  = \frac{P(J,Ein,Al) + P(J,Ein, \overline{Al}))}{P(Ein)} \]
+Sprich: Die Wahrscheinlichkeit eines Anrufes von John wenn eingebrochen wurde.
+Wir müssen hierfür noch \textit{P(J,Ein,Al)} bzw. \textit{P(J,Ein,Al)} kennen:
+\[ P(J, Ein, Al) = P(J\vert Ein, Al) * P(Al\vert Ein) * P(Ein) = P(J\vert Al) * P(Al\vert Ein) * P(Ein) \] 
+Dies können wir nun in die obere Gleichung einsetzen:
+\[ P(J\vert EIn) =  \frac{P(J\vert	Al) * P(Al\vert Ein) * P(Ein) + P(J\vert \overline{Al}) * P(\overline{Al} \vert Ein) * P(Ein) }{P(Ein)}  \]
+Durch Konditionieren erhält man:
+\[ P(J\vert Al) * P(Al\vert Ein) + P(J\vert \overline{Al}) * P(\overline{Al} \vert Ein) \]
+\textit{P(Al $\vert$ Ein)} und \textit{P($\overline{Al}$ $\vert$ Ein)} sind ohne weiteres noch nicht zu berechnen, also stellen wir hier einen Zusammenhang her:
+\[ P(Al\vert Ein) = \frac{P(Al, Ein)}{P(Ein)} = \frac{P(Al,Ein,Erd) + P()Al,Ein, \overline{Erd} }{P(Ein)}  \]
+\[ = \frac{P(Al\vert Ein, Erd) * P(Ein) * P(Erd) + P(Al\vert Ein, \overline{Erd}) * P(Ein) * P(\overline{Erd}) }{P(Ein)}\]
+\[ = P(Al\vert Ein, Erd) * P(Erd) + P(Al\vert Ein, \overline{Erd}) * P(\overline{Erd}) \]
+\[ = 0,95 * 0,002 + 0,94 * 0,998 = 0,94 \]
+\[ P(\overline{Al}\vert Ein) = 1-0,94 = 0,06 \]
+Diese zwei Zahlenwerte können wir nun in die Formel für \textit{P(J$\vert$ Ein)} einsetzen und erhalten:
+\[ P(J\vert Ein) = 0,9 * 0,94 + 0,05 * 0,06 = 0,849 \]
+Nun könne wir sagen, dass John mit einer Wahrscheinlichkeit von 84,9\% bei Einbrüchen anruft. Anhand des vorhandenen Bayes'schen Netzes kann man nun Wahrscheinlichkeiten für weitere Ereignisse berechnen. 
 
 TODO Quelle: Grundkurs
 
