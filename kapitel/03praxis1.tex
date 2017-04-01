@@ -1,13 +1,13 @@
 \chapter{Bayes'sches Netz}
 Dieses Kapitel beschäftigt sich eingangs mit den Grundlagen von Bayes'schen Netzen. Ein Beispiel soll den Sachverhalt greifbar erklären.
-Später kann dann der Zusammenhang zwischen den Bayes'schen Netzen, dem maschinellen Lernen und der Robotik gesehn werden.
+.
 \section{Eigenschaften von Bayes'schen Netzen}
 In der Vorlesung thematisiert, dass ein Roboter zur Lokalisierung über mehrere Sensorsysteme verfügt. Hintergrund ist der, dass die verschiedenen Systeme alle fehlerbehaftet sind. Jedes in einer anderen Hinsicht. So kann es beispielsweise bei der Messung der Raddrehung durch Schlupf zu Messfehlern kommen.
 
-Sei nun \textit{n} die Anzahl der Sensorsysteme und \textit{m} der Wertebereich der möglichen Trefferwahrscheinlichkeiten der Sensorsysteme, dann beträgt der Aufwand der Auswertung des stochastischen Ausdrucks \[ m^n\]. Somit wächst der Aufwand von der Auswertung des Ausdrucks exponentiell. Dieser Aufwand kann in der Praxis glücklicherweise jedoch meist minimiert werden. Oft kann man auf Variablen verzichten, ohne einen Informationsverlust herbeizurufen. Hier kommen Bayes'sche Netze ins Spiel. Sie verwenden das das Wissen über unabhängige Variablen. 
+Sei nun \textit{n} die Anzahl der Sensorsysteme und \textit{m} der Wertebereich der möglichen Trefferwahrscheinlichkeiten der Sensorsysteme, dann beträgt der Aufwand der Auswertung des stochastischen Ausdrucks \[ m^n\] Somit wächst der Aufwand von der Auswertung des Ausdrucks exponentiell. Dieser Aufwand kann in der Praxis glücklicherweise jedoch meist minimiert werden. Oft kann man auf Variablen verzichten, ohne einen Informationsverlust herbeizurufen. Hier kommen Bayes'sche Netze ins Spiel. Sie verwenden das das Wissen über unabhängige Variablen. 
 \subsection{Unabhängige Variablen}
 Sind Zufallsvariablen paarweise unabhängig, so gilt: \[ P(X_1, ..., X_n) = P(X_1) * P(X_2) * ... * P(X_n)\] 
-Gilt die paarweise unabhängigkeit auch für bedingte Wahrscheinlichkeiten, dann gilt: \[ P(A\vert B = \frac{P(A,B)}{P(B)} = \frac{P(A) * P(B)}{P(B)}  = P(A) \] da sind \textit{P(B)} rauskürtzt. Man spricht davon, dass sich \textit{P(A$\vert$ B)} auf die \textit{A-priori-Wahrscheinlichkeit} reduziert. Die A-priori-Wahrscheinlichkeit beschreibt die Wahrscheinlichkeit, die man von durch Vorwissen annehmen kann, in diesem Fall die Unabhängigkeit. Nun kann es jedoch auch sein, dass nicht für alle Variablen paarweise Unabhängigkeit gilt. Es folgt nun ein Beispiel nach TODO Quelle Perl. Es soll aufzeigen, wie man mit Bayes'schen Netzen auf Sachverhalte schließen kann und dabei auch Abhängigkeiten von Variablen nutzt. 
+Gilt die paarweise unabhängigkeit auch für bedingte Wahrscheinlichkeiten, dann gilt: \[ P(A\vert B = \frac{P(A,B)}{P(B)} = \frac{P(A) * P(B)}{P(B)}  = P(A) \] da sind \textit{P(B)} rauskürtzt. Man spricht davon, dass sich \textit{P(A$\vert$ B)} auf die \textit{A-pri"-ori-Wahr"-schein"-lich"-keit} reduziert. Die A-pri"-ori-Wahr"-schein"-lich"-keit beschreibt die Wahrscheinlichkeit, die man von durch Vorwissen annehmen kann, in diesem Fall die Unabhängigkeit. Nun kann es jedoch auch sein, dass nicht für alle Variablen paarweise Unabhängigkeit gilt. Es folgt nun ein Beispiel nach TODO Quelle Perl. Es soll aufzeigen, wie man mit Bayes'schen Netzen auf Sachverhalte schließen kann und dabei auch Abhängigkeiten von Variablen nutzt. 
 
 \section{Alarmanlagen-/Erdbebenbeisiel}
 Bob ist alleinstehend und berufstätige und möchte sein Haus vor Einbrechern schützen. Er bringt in seinem Haus eine Alarmanlage an. Sie soll im Falle eines Einbruch (\textit{Ein}) alarmieren. Ist er im Büro, so kann er den Alarm nicht hören. Glücklicherweise hat er die netten Nachbarn John (\textit{J}) und Mary (\textit{M}). Sie wohnen im linken beziehungsweise rechten Nachbarhaus. John hat nun schon einige Jahre Erfahrung mit seiner Alarmanlage (\textit{Al}) und dem Anrufverhalten seiner Nachbarn und weiß: 
@@ -39,7 +39,7 @@ Für die Variablen \textit{J} und \textit{Ein} gilt folgendes:
 \[ P(J,Ein\vert Al) = P(J\vert Al) * P(Ein\vert Al)\]
 Die Erkenntnis aus der obigen Gleichung lautet: \textit{J} und \textit{Ein} sind unabhängig, gegeben \textit{Al}. Ebenso unabhängig sind auch \textit{J} und \textit{Erd} gegeben \textit{Al}, \textit{J} und \textit{Erd} gegeben \textit{Al}, \textit{M}, \textit{M} und \textit{Ein} gegeben \textit{Al} sowie \textit{M} und \textit{Erd} gegeben \textit{Al}. 
 
-Mit dem Hintergrundwissen konkrete Wahrscheinlichkeiten berechnen:
+Mit dem Hintergrundwissen kann man nun konkrete Wahrscheinlichkeiten berechnen:
 \[ P(J\vert Ein) = \frac{P(J\vert Ein)}{P(Ein)}  = \frac{P(J,Ein,Al) + P(J,Ein, \overline{Al}))}{P(Ein)} \]
 Sprich: Die Wahrscheinlichkeit eines Anrufes von John wenn eingebrochen wurde.
 Wir müssen hierfür noch \textit{P(J,Ein,Al)} bzw. \textit{P(J,Ein,Al)} kennen:
@@ -57,6 +57,7 @@ Durch Konditionieren erhält man:
 Diese zwei Zahlenwerte können wir nun in die Formel für \textit{P(J$\vert$ Ein)} einsetzen und erhalten:
 \[ P(J\vert Ein) = 0,9 * 0,94 + 0,05 * 0,06 = 0,849 \]
 Nun könne wir sagen, dass John mit einer Wahrscheinlichkeit von 84,9\% bei Einbrüchen anruft. Anhand des vorhandenen Bayes'schen Netzes kann man nun Wahrscheinlichkeiten für weitere Ereignisse berechnen. 
+Die Anzahl der Einträge der zugehörigen Wahrheitstabelle beträgt nun nur noch \textit{n * (m-1) * $m^k$}, wobei \textit{k} die Anzahl der Elternknoten ist.
 
 TODO Quelle: Grundkurs
 
