@@ -2,7 +2,7 @@
 Dieses Kapitel beschäftigt sich eingangs mit den Grundlagen von Bayes'schen Netzen. Ein Beispiel soll den Sachverhalt greifbar erklären.
 .
 \section{Eigenschaften von Bayes'schen Netzen}
-In der Vorlesung thematisiert, dass ein Roboter zur Lokalisierung über mehrere Sensorsysteme verfügt. Hintergrund ist der, dass die verschiedenen Systeme alle fehlerbehaftet sind. Jedes in einer anderen Hinsicht. So kann es beispielsweise bei der Messung der Raddrehung durch Schlupf zu Messfehlern kommen.
+In der Vorlesung \cite{Strand17} thematisiert, dass ein Roboter zur Lokalisierung über mehrere Sensorsysteme verfügt. Hintergrund ist der, dass die verschiedenen Systeme alle fehlerbehaftet sind. Jedes in einer anderen Hinsicht. So kann es beispielsweise bei der Messung der Raddrehung durch Schlupf zu Messfehlern kommen.
 
 Sei nun \textit{n} die Anzahl der Sensorsysteme und \textit{m} der Wertebereich der möglichen Trefferwahrscheinlichkeiten der Sensorsysteme, dann beträgt der Aufwand der Auswertung des stochastischen Ausdrucks \[ m^n\] Somit wächst der Aufwand von der Auswertung des Ausdrucks exponentiell. Dieser Aufwand kann in der Praxis glücklicherweise jedoch meist minimiert werden. Oft kann man auf Variablen verzichten, ohne einen Informationsverlust herbeizurufen. Hier kommen Bayes'sche Netze ins Spiel. Sie verwenden das das Wissen über unabhängige Variablen. 
 \subsection{Unabhängige Variablen}
@@ -26,9 +26,16 @@ Außerdem gilt für die Auftretenswahrscheinlichkeiten:
 \[ P(Erd) = 0,002\]
 Des Weiteren gehen wir hier in diesem Beispiel davon aus, dass das Auftreten eines Erdbebens nichts mit einem Einbruch und das Vorkommen eines Einbruchs nichts mit dem Auftreten eines Erdbebens zu tun hat. Diese Ereignisse sind also stochastisch unabhängig.   
 \subsection{Bayes'sche Netze als Graphen}
-TODO Grafik 7.11 einfügen
 
-Um die oben genannten Sachverhalte anschaulicher zu gestalten, kann man sie mit Hilfe eines Graphen visualisieren. Graphen bestehen im Allgemeinen aus Knoten und Kanten. Bei Graphen von Bayes'schen Netzen repräsentieren Knoten Variablen und Kanten stehen für eine bedingte Wahrscheinlichkeit. So gibt die Kante von \textit{Einbruch} nach \textit{Alarm} die Wahrscheinlichkeit \textit{P(Al$\vert$ Ein)} und \textit{P(Al$\vert$ $\overline{Ein}$)} wieder. In der Grafik ist auch eine Wahrheitstabelle enthalten. Die Abkürzungen \textit{w} und \textit{f} stehen für wahr und falsch. Die Tatsache, dass keine Kante von \textit{Einbruch} nach \textit{Erdbeben} zeigt, dass die Variablen unabhängig sind. Um die anderen Kanten zu verstehen, schauen wir uns erst einmal allgemein die \textit{Bedingte Unabhängigkeit} an. 
+
+\begin{figure}%[h!]
+\includegraphics[scale=0.3]{bilder/bspNetz} 
+\caption{Bayes'sches Netz des Alarmanlagen-/Erdbebenbeisiels \cite{Ertel16}}
+\label{Agenten}
+\end{figure}
+
+
+Um die oben genannten Sachverhalte anschaulicher zu gestalten, kann man sie mit Hilfe eines Graphen visualisieren, siehe Abbildung 3.1.  Graphen bestehen im Allgemeinen aus Knoten und Kanten. Bei Graphen von Bayes'schen Netzen repräsentieren Knoten Variablen und Kanten stehen für eine bedingte Wahrscheinlichkeit. So gibt die Kante von \textit{Einbruch} nach \textit{Alarm} die Wahrscheinlichkeit \textit{P(Al$\vert$ Ein)} und \textit{P(Al$\vert$ $\overline{Ein}$)} wieder. In der Grafik ist auch eine Wahrheitstabelle enthalten. Die Abkürzungen \textit{w} und \textit{f} stehen für wahr und falsch. Die Tatsache, dass keine Kante von \textit{Einbruch} nach \textit{Erdbeben} zeigt, dass die Variablen unabhängig sind. Um die anderen Kanten zu verstehen, schauen wir uns erst einmal allgemein die \textit{Bedingte Unabhängigkeit} an. 
 \subsection{Bedingte Unabhängigkeit}  
 Zwei Variablen \textit{A} und \textit{B} sind stochastisch bedingt abhängig, wenn gilt:
 \[ P(A,B\vert C) = P(A\vert C) * P(B\vert C)\]
@@ -57,7 +64,5 @@ Durch Konditionieren erhält man:
 Diese zwei Zahlenwerte können wir nun in die Formel für \textit{P(J$\vert$ Ein)} einsetzen und erhalten:
 \[ P(J\vert Ein) = 0,9 * 0,94 + 0,05 * 0,06 = 0,849 \]
 Nun könne wir sagen, dass John mit einer Wahrscheinlichkeit von 84,9\% bei Einbrüchen anruft. Anhand des vorhandenen Bayes'schen Netzes kann man nun Wahrscheinlichkeiten für weitere Ereignisse berechnen. 
-Die Anzahl der Einträge der zugehörigen Wahrheitstabelle beträgt nun nur noch \textit{n * (m-1) * $m^k$}, wobei \textit{k} die Anzahl der Elternknoten ist.
-
-TODO Quelle: Grundkurs
+Die Anzahl der Einträge der zugehörigen Wahrheitstabelle beträgt nun nur noch \textit{n * (m-1) * $m^k$}, wobei \textit{k} die Anzahl der Elternknoten ist. Nach \cite{Ertel16}
 
