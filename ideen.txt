@@ -23,4 +23,7 @@ Bayes:
 -zahlenbsp aus seite 172
 -wissen über unabhängigkeit von variablen wird genutzt
 -bsp?
--
+
+TODOs
+-Robotik Seitenzahl hinzufügen (2 von 3)
+-Paper lesen
