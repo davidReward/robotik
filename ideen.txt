@@ -25,5 +25,4 @@ Bayes:
 -bsp?
 
 TODOs
--Robotik Seitenzahl hinzufügen (2 von 3)
 -Paper lesen
