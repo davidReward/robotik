@@ -2,9 +2,9 @@
 Dieses Kapitel beschäftigt sich eingangs mit den Grundlagen von Bayes'schen Netzen. Ein Beispiel soll den Sachverhalt greifbar erklären.
 
 \section{Eigenschaften von Bayes'schen Netzen}
-In der Vorlesung \cite{Strand17} wurde thematisiert, dass ein Roboter zur Lokalisierung über mehrere Sensorsysteme verfügt. Hintergrund ist der, dass die verschiedenen Systeme alle fehlerbehaftet sind. Jedes in einer anderen Hinsicht. So kann es beispielsweise bei der Messung der Raddrehung durch Schlupf zu Messfehlern kommen.
+In der Vorlesung \cite{Strand17} wurde thematisiert, dass ein Roboter zur Lokalisierung über mehrere Sensorsysteme verfügt. Hintergrund ist, dass die verschiedenen Systeme fehlerbehaftet sind. Jedes in einer anderen Hinsicht. So kann es beispielsweise bei der Messung der Raddrehung durch Schlupf zu Messfehlern kommen.
 
-Sei nun \textit{n} die Anzahl der Sensorsysteme und \textit{m} der Wertebereich der möglichen Trefferwahrscheinlichkeiten der Sensorsysteme, dann beträgt der Aufwand der Auswertung des stochastischen Ausdrucks \[ m^n\] Somit wächst der Aufwand von der Auswertung des Ausdrucks exponentiell. Dieser Aufwand kann in der Praxis glücklicherweise jedoch meist minimiert werden. Oft kann man auf Variablen verzichten, ohne einen Informationsverlust herbeizurufen. Hier kommen Bayes'sche Netze ins Spiel. Sie verwenden das das Wissen über unabhängige Variablen. 
+Sei nun \textit{n} die Anzahl der Sensorsysteme und \textit{m} der Wertebereich der möglichen Trefferwahrscheinlichkeiten der Sensorsysteme, dann beträgt der Aufwand der Auswertung des stochastischen Ausdrucks \[ m^n\] Somit wächst der Aufwand von der Auswertung des Ausdrucks exponentiell. Dieser Aufwand kann in der Praxis glücklicherweise jedoch meist minimiert werden. Oft kann man ohne einen Informationsverlust auf Variable verzichten. Hier kommen Bayes'sche Netze ins Spiel. Sie verwenden das Wissen über unabhängige Variablen. 
 \subsection{Unabhängige Variablen}
 Sind Zufallsvariablen paarweise unabhängig, so gilt: \[ P(X_1, ..., X_n) = P(X_1) * P(X_2) * ... * P(X_n)\] 
 Und: \[ P(A\vert B) = \frac{P(A,B)}{P(B)} = \frac{P(A) * P(B)}{P(B)}  = P(A) \] da sich \textit{P(B)} rauskürtzt. Man spricht davon, dass sich \textit{P(A$\vert$ B)} auf die \textit{A-pri"-ori-Wahr"-schein"-lich"-keit} reduziert. Die A-pri"-ori-Wahr"-schein"-lich"-keit beschreibt die Wahrscheinlichkeit, die man durch Vorwissen annehmen kann, in diesem Fall die Unabhängigkeit. Nun kann es jedoch auch sein, dass nicht für alle Variablen paarweise Unabhängigkeit gilt. Es folgt nun ein Beispiel nach \cite{Perl88}. Es soll aufzeigen, wie man mit Bayes'schen Netzen auf Sachverhalte schließen kann und dabei auch Abhängigkeiten von Variablen nutzt. 
@@ -63,6 +63,6 @@ Durch Konditionieren erhält man:
 \[ P(\overline{Al}\vert Ein) = 1-0,94 = 0,06 \]
 Diese zwei Zahlenwerte können wir nun in die Formel für \textit{P(J$\vert$ Ein)} einsetzen und erhalten:
 \[ P(J\vert Ein) = 0,9 * 0,94 + 0,05 * 0,06 = 0,849 \]
-Nun könne wir sagen, dass John mit einer Wahrscheinlichkeit von 84,9\% bei Einbrüchen anruft. Anhand des vorhandenen Bayes'schen Netzes kann man nun Wahrscheinlichkeiten für weitere Ereignisse berechnen. 
+Nun können wir sagen, dass John mit einer Wahrscheinlichkeit von 84,9\% bei Einbrüchen anruft. Anhand des vorhandenen Bayes'schen Netzes kann man nun Wahrscheinlichkeiten für weitere Ereignisse berechnen. 
 Die Anzahl der Einträge der zugehörigen Wahrheitstabelle beträgt nun nur noch \textit{n * (m-1) * $m^k$}, wobei \textit{k} die Anzahl der Elternknoten ist. Nach \cite{Ertel16}
 
