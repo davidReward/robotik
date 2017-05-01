@@ -1,0 +1,6 @@
+-door crossing
+-bisher: Messungen um Fehler zu finden
+-Bayes-Netze: Verhaltensbasierte Diagnose
+-Entscheidung zwischen: Turn left, turn right, sttraight
+-Gaußfunktion um Sensordaten und vorhergesagte Daten zu vergleichen
+-Wahrscheinlichkeit pro Sensor
