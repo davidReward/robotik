@@ -15,12 +15,29 @@ Im Hinblick auf den Hintergrund, wie Rechner Bayes'sche Netze lernen können, ve
 \section{Bayes'sche Netze in der Praxis}
 Viele wissenschaftliche Schriften (papers) zeigen, wie man Bayes'sche Netze in der Robotik nutzen kann. Im folgenden sind Referenzen zu einigen Schriften zu finden:
 \begin{itemize}
-\item Objekte mit einer hohen Genauigkeit zu erkennen ist ein Problem in der Robotik bzw. Bildverarbeitung. Diese Schrift schlägt eine konkrete Lösung unter Benutzung eines Bayes'schen Netzes vor: \url{http://www.ri.cmu.edu/pub_files/pub4/schneiderman_henry_2004_2/schneiderman_henry_2004_2.pdf}
-\item Für das in Kapitel 3.1 aufgegriffene Problem (Umgang mit falschen Sensordaten) wird in diesen Schrift eine Lösung unter Zuhilfenahme eines Bayes'schen Netzes vorgeschlagen \subitem \url{http://www.eejournal.ktu.lt/index.php/elt/article/viewFile/152/111} 
+\item Objekte mit einer hohen Genauigkeit zu erkennen ist ein Problem in der Robotik bzw. Bildverarbeitung. Diese Schrift schlägt eine konkrete Lösung unter Benutzung eines Bayes'schen Netzes vor: 
+\subitem \url{http://www.ri.cmu.edu/pub_files/pub4/schneiderman_henry_2004_2/schneiderman_henry_2004_2.pdf}
+
+
+
+
+\item Diese Schrift thematisiert die Fusion mehrere Sensordaten mithilfe eines Bayes'schen Netzes
 \subitem \url{https://trac.v2.nl/export/7875/andres/Documentation/Bayesian%20reasoning-networks/dynamic%20bayes%20net%20approach%20to%20multimodal%20sensor%20fusion.ps}
+
+
+\item Für das in Kapitel 3.1 aufgegriffene Problem (Umgang mit falschen Sensordaten) wird in diesen Schrift eine Lösung unter Zuhilfenahme eines Bayes'schen Netzes vorgeschlagen
+\subitem \url{http://www.eejournal.ktu.lt/index.php/elt/article/viewFile/152/111}
 \end{itemize}
 
-
+\subsection{Umgang mit falschen Sensordaten}
+Im Folgenden eine kurze Zusammenfassung letzterer Schrift: Die Schrift behandelt das Problem der Türdurchquerung. Hier nutzt man ein Bayes'sches Netz zur verhaltensbasierten Diagnose. Der Roboter soll entscheiden zwischen:
+\begin{itemize}
+\item nach links lenken
+\item nach rechts lenken
+\item geradeaus fahren
+\end{itemize}
+Zunächst ist jedem Sensor eine Wahrscheinlichkeit zugeordnet. Die Wahrscheinlichkeit besagt, mit welcher Sicherheit die Messung korrekt ist. Ferner müssen zwei weitere Sensoren die Messdaten eines Sensors bestätigen. Für den Vergleich der Sensordaten nutzen die Autoren eine Grußfunktion. 
+Abschließend zeigt das Paper, dass die Implementierung des Bayes'schen Netzes den geforderten Echtzeitansprüchen nachkam. Ebenfalls reduzierte die Implementierung die Fehlerrate signifikant.  
 
 
 

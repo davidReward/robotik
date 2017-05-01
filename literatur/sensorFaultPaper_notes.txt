@@ -4,3 +4,7 @@
 -Entscheidung zwischen: Turn left, turn right, sttraight
 -Gaußfunktion um Sensordaten und vorhergesagte Daten zu vergleichen
 -Wahrscheinlichkeit pro Sensor
+-Daten eines Sensors müssen von zwei weiteren Sensoren bestätigt werden
+-Türerkennug mit Sonar. Hier auch pro Sensor eine Wahrscheinlichkeit, dass er stimmt
+-Erreichen eines Echtzeitverhaltens
+-Einfluss von falschen Messwerten sank signifikant 
